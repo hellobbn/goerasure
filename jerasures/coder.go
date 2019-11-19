@@ -14,4 +14,6 @@ type Coder interface {
 	DatBlks() int
 	// parity blocks
 	PariBlks() int
+	// blockSize
+	BlkSize() int
 }

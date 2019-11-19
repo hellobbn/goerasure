@@ -20,6 +20,7 @@ type ReedSolVand struct {
 	k      int
 	m      int
 	w      int
+	blkSize int	// saves blkint
 }
 
 // NewReedSolVand:
@@ -55,6 +56,8 @@ func (rsCode ReedSolVand) Encode(data []byte) ([][]byte, [][]byte, int, error) {
 	C.free(unsafe.Pointer(edC))
 	C.free(unsafe.Pointer(epC))
 
+	// TODO: save blockSize
+	rsCode.blkSize = blockSize
 	return edBytes, epBytes, blockSize, nil
 }
 
@@ -91,4 +94,8 @@ func (rsv ReedSolVand) DatBlks() int {
 
 func (rsv ReedSolVand) PariBlks() int {
 	return rsv.m;
+}
+
+func (rsv ReedSolVand) BlkSize() int {
+	return rsv.blkSize;
 }
