@@ -26,7 +26,7 @@ type ReedSolVand struct {
 // NewReedSolVand:
 // Creates a new ReedSolVand Object
 // Using this function, w is by default set to 8
-func NewReedSolVand(k, m int) ReedSolVand {
+func NewReedSolVand(k, m int) Coder {
 	rscode := ReedSolVand{
 		k: k,
 		m: m,
