@@ -26,7 +26,7 @@ type ReedSolVand struct {
 // NewReedSolVand:
 // Creates a new ReedSolVand Object
 // Using this function, w is by default set to 8
-func NewReedSolVand(k, m int) Coder {
+func NewReedSolVand(k, m int) ReedSolVand {
 	rscode := ReedSolVand{
 		k: k,
 		m: m,
@@ -57,7 +57,6 @@ func (rsCode ReedSolVand) Encode(data []byte) ([][]byte, [][]byte, int, error) {
 	C.free(unsafe.Pointer(epC))
 
 	// TODO: save blockSize
-	rsCode.blkSize = blockSize
 	return edBytes, epBytes, blockSize, nil
 }
 
@@ -89,13 +88,13 @@ func (rsCode ReedSolVand) Decode(encodedData, encodedParity [][]byte, blockSize 
 }
 
 func (rsv ReedSolVand) DatBlks() int {
-	return rsv.k;
+	return rsv.k
 }
 
 func (rsv ReedSolVand) PariBlks() int {
-	return rsv.m;
+	return rsv.m
 }
 
 func (rsv ReedSolVand) BlkSize() int {
-	return rsv.blkSize;
+	return rsv.blkSize
 }
