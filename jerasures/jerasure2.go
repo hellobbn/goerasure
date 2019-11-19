@@ -57,6 +57,7 @@ func (rsCode ReedSolVand) Encode(data []byte) ([][]byte, [][]byte, int, error) {
 	C.free(unsafe.Pointer(epC))
 
 	// TODO: save blockSize
+	rsCode.blkSize = blockSize
 	return edBytes, epBytes, blockSize, nil
 }
 
