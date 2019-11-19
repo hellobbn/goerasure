@@ -84,3 +84,11 @@ func (rsCode ReedSolVand) Decode(encodedData, encodedParity [][]byte, blockSize 
 
 	return utils.ConvertResultData(encodedData, blockSize)
 }
+
+func (rsv ReedSolVand) DatBlks() int {
+	return rsv.k;
+}
+
+func (rsv ReedSolVand) PariBlks() int {
+	return rsv.m;
+}

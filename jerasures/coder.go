@@ -10,4 +10,8 @@ type Coder interface {
 	Encode(data []byte) ([][]byte, [][]byte, int, error)
 	// Decode method
 	Decode(encodedData, encodedParity [][]byte, blockSize int, missingIDs []int) []byte
+	// DatBlocks
+	DatBlks() int
+	// parity blocks
+	PariBlks() int
 }
