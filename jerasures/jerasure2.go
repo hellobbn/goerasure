@@ -14,6 +14,7 @@ import (
 )
 
 //structure for ReedSol Code with Vandermonde Matrix
+// ReedSolVand implements Coder
 type ReedSolVand struct {
 	matrix (*C.int)
 	k      int
