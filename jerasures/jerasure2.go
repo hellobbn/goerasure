@@ -63,7 +63,7 @@ func (rsCode ReedSolVand) Encode(data []byte) ([][]byte, [][]byte, int, error) {
 
 // Decode:
 // decodes data
-func (rsCode ReedSolVand) Decode(encodedData, encodedParity [][]byte, blockSize int, missingIDs []int) []byte {
+func (rsCode ReedSolVand) Decode(encodedData, encodedParity [][]byte, blockSize int, missingIDs []int) [][]byte {
 	edC := BlockToC(encodedData)
 	epC := BlockToC(encodedParity)
 
@@ -85,7 +85,7 @@ func (rsCode ReedSolVand) Decode(encodedData, encodedParity [][]byte, blockSize 
 	C.free(unsafe.Pointer(edC))
 	C.free(unsafe.Pointer(epC))
 
-	return utils.ConvertResultData(encodedData, blockSize)
+	return encodedData
 }
 
 func (rsv ReedSolVand) DatBlks() int {
