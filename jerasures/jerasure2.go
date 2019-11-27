@@ -30,7 +30,7 @@ func NewReedSolVand(k, m int) ReedSolVand {
 	rscode := ReedSolVand{
 		k: k,
 		m: m,
-		w: 16, // by default, TODO: try to be more specific
+		w: 8, // by default, TODO: try to be more specific
 	}
 	rscode.matrix = C.reed_sol_vandermonde_coding_matrix(C.int(k), C.int(m), C.int(rscode.w))
 	return rscode
