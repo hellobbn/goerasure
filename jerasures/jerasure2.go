@@ -8,7 +8,7 @@ package jerasures
 import "C"
 
 import (
-	"fmt"
+	"log"
 	"unsafe"
 
 	"github.com/hellobbn/goerasure/utils"
@@ -45,8 +45,8 @@ func (rsCode ReedSolVand) Encode(data []byte) ([][]byte, [][]byte, int, error) {
 	edC := BlockToC(edBytes)
 	epC := BlockToC(epBytes)
 
-	fmt.Println(edC)
-	fmt.Println(epC)
+	log.Println(edC)
+	log.Println(epC)
 	C.jerasure_matrix_encode(C.int(rsCode.k), C.int(rsCode.m), C.int(rsCode.w),
 		rsCode.matrix,
 		edC,
